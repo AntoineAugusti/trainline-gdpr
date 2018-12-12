@@ -14,7 +14,7 @@ with open(args.filepath) as f:
 
 res = defaultdict(list)
 for pnr in data['pnrs']:
-    if pnr['status'] == 'emitted':
+    if pnr['status'] == 'emitted' and not pnr['cancelled']:
         for leg in pnr['legs']:
             res['code'].append(pnr['code'])
             res['booked_at'].append(pnr['booked_at'])
